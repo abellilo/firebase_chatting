@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "292779882647",
+    "project_id": "astrachat-73307",
+    "storage_bucket": "astrachat-73307.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292779882647:android:63a14ea8cf77645eac91d2",
+        "android_client_info": {
+          "package_name": "com.example.chat_with_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZx260kvJ0lxY_FTIAF8LCGcHNhyKfS6s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

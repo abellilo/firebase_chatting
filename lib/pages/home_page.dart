@@ -67,6 +67,7 @@ class _HomePageState extends State<HomePage> {
                     height: 30,
                   ),
 
+                  Text(_firebaseAuth.currentUser!.email!),
                   //divider
                   Divider(
                     thickness: 2,
@@ -164,7 +165,7 @@ class _HomePageState extends State<HomePage> {
         }
 
         if(snapshot.connectionState == ConnectionState.waiting){
-          return Center(child: SpinKitWanderingCubes(
+          return Center(child: SpinKitDoubleBounce(
             color: Colors.deepPurple.shade800,
             size: 100,
           ),);

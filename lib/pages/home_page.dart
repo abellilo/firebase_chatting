@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
 
                   //logo
                   Image.asset(
-                    "lib/assets/astral_chat.png",
+                    "lib/assets/abellilo.png",
                     width: 70,
                   ),
 

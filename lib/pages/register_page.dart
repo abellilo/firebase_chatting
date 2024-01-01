@@ -64,7 +64,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                   //logo
                   Image.asset(
-                    "lib/assets/astral_chat.png",
+                    "lib/assets/abellilo.png",
                     width: 100,
                   ),
 

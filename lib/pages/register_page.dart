@@ -49,7 +49,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.deepPurple[200],
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -59,10 +59,9 @@ class _RegisterPageState extends State<RegisterPage> {
               children: [
 
                 //logo
-                Icon(
-                  Icons.message,
-                  size: 100,
-                  color: Colors.grey[800],
+                Image.asset(
+                  "lib/assets/astral_chat.png",
+                  width: 100,
                 ),
 
                 const SizedBox(
@@ -72,7 +71,9 @@ class _RegisterPageState extends State<RegisterPage> {
                 //create account message
                 const Text("Let's create an account for you",
                   style: TextStyle(
-                      fontSize: 16
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold
                   ),),
 
                 const SizedBox(
@@ -123,12 +124,17 @@ class _RegisterPageState extends State<RegisterPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Already a member?"),
+                    Text("Already a member?",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600
+                      ),),
                     const SizedBox(width: 4,),
                     GestureDetector(
                       onTap: widget.onTap,
-                      child: const Text("Login now",style: TextStyle(
-                          fontWeight: FontWeight.bold
+                      child: Text("Login now",style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.deepPurple[800]
                       ),),
                     )
                   ],

@@ -40,8 +40,18 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: AppBar(
-        title: Text(widget.receviedUserEmail),
+        title: Text(widget.receviedUserEmail,style: TextStyle(
+          fontSize: 17
+        ),),
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Theme.of(context).colorScheme.background,
+        leading: IconButton(
+          onPressed: ()=> Navigator.pop(context),
+          icon: Icon(Icons.arrow_back_ios,),
+        ),
       ),
       body: Column(
         children: [
@@ -51,7 +61,7 @@ class _ChatPageState extends State<ChatPage> {
           //user input
           _buildMessageInput(),
 
-          const SizedBox(height: 5,)
+          const SizedBox(height: 10,)
         ],
       ),
     );
@@ -87,6 +97,16 @@ class _ChatPageState extends State<ChatPage> {
         ? Alignment.centerRight
         : Alignment.centerLeft;
 
+    //color for container  chat bubble
+    var containerColor = (data['senderId'] == _firebaseAuth.currentUser!.uid)
+        ? Colors.green
+        : Colors.white;
+
+    //color for text  chat bubble
+    var textColor = (data['senderId'] == _firebaseAuth.currentUser!.uid)
+        ? Colors.white
+        : Colors.black;
+
     return Container(
       alignment: alignment,
       child: Padding(
@@ -99,11 +119,15 @@ class _ChatPageState extends State<ChatPage> {
               ?MainAxisAlignment.end
               :MainAxisAlignment.start,
           children: [
-            Text(data['senderEmail']),
+            // Text(data['senderEmail']),
             const SizedBox(
               height: 5,
             ),
-            ChatBubble(message: data['message']),
+            ChatBubble(
+              message: data['message'],
+              containerColor: containerColor,
+              textColor: textColor,
+            ),
           ],
         ),
       ),
@@ -115,22 +139,26 @@ class _ChatPageState extends State<ChatPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           //textfield
           Expanded(
-              child: MyTextField(
+              child: MyMessageTextField(
             controller: _messageController,
             obscureText: false,
             hintText: "Enter message",
           )),
 
+          const SizedBox(width: 5,),
+
           //send button
-          IconButton(
-              onPressed: sendMessage,
-              icon: const Icon(
-                Icons.send,
-                size: 40,
-              ))
+          GestureDetector(
+            onTap: sendMessage,
+            child: CircleAvatar(
+              backgroundColor: Colors.green,
+              child: Icon(Icons.arrow_upward,color: Colors.white,),
+            ),
+          )
         ],
       ),
     );

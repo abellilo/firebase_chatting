@@ -21,12 +21,48 @@ class MyTextField extends StatelessWidget {
           color: Colors.grey
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey.shade200)
+          borderSide: BorderSide(color: Colors.grey.shade200),
         ),
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white)
+            borderSide: BorderSide(color: Colors.white),
         ),
-        fillColor: Colors.grey[100],
+        fillColor: Colors.white,
+        filled: true,
+      ),
+    );
+  }
+}
+
+
+class MyMessageTextField extends StatelessWidget {
+  final TextEditingController controller;
+  final String hintText;
+  final bool obscureText;
+
+  MyMessageTextField({Key? key,
+    required this.controller,
+    required this.hintText,
+    required this.obscureText}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      controller: controller,
+      obscureText: obscureText,
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle: TextStyle(
+            color: Colors.grey
+        ),
+        enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.grey.shade200),
+            borderRadius: BorderRadius.circular(10)
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.white),
+            borderRadius: BorderRadius.circular(10)
+        ),
+        fillColor: Colors.white,
         filled: true,
       ),
     );

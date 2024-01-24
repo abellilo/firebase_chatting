@@ -58,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
 
                   //logo
                   Image.asset(
-                    "lib/assets/abellilo.png",
+                    "lib/assets/chat_logo.png",
                     width: 100,
                   ),
 
